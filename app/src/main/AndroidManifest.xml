@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Die zentrale Beschreibung der App Muscle Puzzle. Hier werden Activitys angemeldet -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.malkinfo.puzzlegames">
+
+    <!-- Android Funktionen die eine Erlaubnis durch den Benutzer benötigen, müssen explizit vermerkt werden -->
+    <!-- Wir benötigen die Berechtigung zum schreiben und Lesen des Speichers -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Unter application werden Grundlegende Dinge festgelegt wie z.B. Name,App Icon, Theme Style etc. -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PuzzleGames"
+        tools:replace="android:icon">
+        <!-- Nun werden die einzelnen Activitys angekündigt -->
+        <!-- android:exported = Komponente ist für andere Activity verfügbar -->
+        <activity
+            android:name=".PuzzleActivity"
+            android:exported="true" />
+        <!-- intent-filter = erklären dem Android System welche Fähigkeiten eine Aktivität besitzt -->
+        <!-- MAIN = einstiegs Activity, LAUNCHER = Activity soll durch ICON auf dem Android-Hauptmenü
+         gestartet werden können -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MainMenu"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ArcadeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ArcadeActivityMiddle"
+            android:exported="true" />
+        <activity
+            android:name=".ArcadeActivityHard"
+            android:exported="true" />
+        <activity
+            android:name=".LevelOfDifficulty"
+            android:exported="true" />
+        <activity
+            android:name=".Settings"
+            android:exported="true" />
+        <activity
+            android:name=".LeaderboardActivity"
+            android:exported="true" />
+
+        <!-- provider Klassen bieten vereinfachte Methoden zum Hinzufügen oder Abrufen
+         von Daten von Inhaltsanbietern und müssen in xml angekündigt werden. -->
+        <provider
+            android:authorities="${applicationId}.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                />
+
+        </provider>
+    </application>
+
+</manifest>

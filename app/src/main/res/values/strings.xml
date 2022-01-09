@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MUSCLE PUZZLE</string>
+    <string name="homescreen_singlegame_button">Single Game</string>
+    <string name="homescreen_arcademode_button">Arcade Game</string>
+    <string name="homescreen_preferences_button">Preferences</string>
+    <string name="levelOfDifficulty_low_button">einfach</string>
+    <string name="levelOfDifficulty_middle_button">mittel</string>
+    <string name="levelOfDifficulty_high_button">schwer</string>
+</resources>
